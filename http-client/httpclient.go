@@ -1,27 +1,33 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 )
 
+type CatFact struct {
+	Text string
+	Type string
+}
+
 func main() {
-	resp, err := http.Get("http://www.google.com")
+	resp, err := http.Get("https://cat-fact.herokuapp.com/facts/random")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
-	body := ""
-	chunk := make([]byte, 10)
-	for {
-		_, err := resp.Body.Read(chunk)
-		if err == io.EOF {
-			break
-		}
-
-		body += string(chunk)
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err.Error())
 	}
 
-	fmt.Println(body)
+	// fact := new(CatFact)
+	var fact CatFact
+	json.Unmarshal(body, &fact)
+
+	fmt.Println(fact.Text)
+	fmt.Println("")
+	fmt.Println(string(body))
 }
