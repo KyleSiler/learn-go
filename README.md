@@ -30,3 +30,4 @@ A Collection of projects I am using to learn how to program Go.
 [Effective Go](https://go.dev/doc/effective_go)
 [Go Standard Library](https://pkg.go.dev/std)
 [Test Containers - Integ Testing](https://golang.testcontainers.org/)
+[An Introduction to Programming in Go](https://www.golang-book.com/books/intro)
