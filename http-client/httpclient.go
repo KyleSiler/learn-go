@@ -32,7 +32,10 @@ func callAPI(location string, endpoint string, wg *sync.WaitGroup) {
 
 func main() {
 	var wg sync.WaitGroup
-	wg.Add(1)
+	wg.Add(4)
 	go callAPI("roseville", "https://www.autonationchryslerdodgejeepramroseville.com/apis/widget/INVENTORY_LISTING_DEFAULT_AUTO_NEW:inventory-data-bus1/getInventory?bodyStyle=Truck%20Crew%20Cab&compositeType=new&make=Jeep&model=Gladiator&year=2024&pageSize=50", &wg)
+	go callAPI("sacrmento", "https://www.sacsuperstore.com/apis/widget/INVENTORY_LISTING_DEFAULT_AUTO_NEW:inventory-data-bus1/getInventory?make=Jeep&model=Gladiator&year=2024&pageSize=50", &wg)
+	go callAPI("folsom", "https://www.sacsuperstore.com/apis/widget/INVENTORY_LISTING_DEFAULT_AUTO_NEW:inventory-data-bus1/getInventory?make=Jeep&model=Gladiator&year=2024&pageSize=50", &wg)
+	go callAPI("reno", "https://www.lithiajeepreno.com/apis/widget/INVENTORY_LISTING_DEFAULT_AUTO_NEW:inventory-data-bus1/getInventory?year=2024&gvBodyStyle=Truck&model=Gladiator&make=Jeep&pageSize=50", &wg)
 	wg.Wait()
 }
