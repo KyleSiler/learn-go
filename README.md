@@ -2,8 +2,8 @@
 A Collection of projects I am using to learn how to program Go.
 
 ## TODO
-* Call API
 * REST Service
+* Web Socket
 * Unit Testing
 * Integration Testing (testcontainers?)
 * Connect to DB
@@ -11,6 +11,7 @@ A Collection of projects I am using to learn how to program Go.
 * Concurrency examples
 * Llama LLM bot (w/ RAG?)
 * Terminal app
+* HTMX(?)
 
 
 ## General things to look into more
@@ -21,6 +22,7 @@ A Collection of projects I am using to learn how to program Go.
 
 
 ## DONE
+* Call API
 * Hello World
 * Simple HTML Server
 * Some basic tutorials
