@@ -3,7 +3,6 @@ A Collection of projects I am using to learn how to program Go.
 
 ## TODO
 * Web Socket
-* Unit Testing
 * Integration Testing (testcontainers?)
 * Go gRPC
 * Concurrency examples
@@ -26,6 +25,7 @@ A Collection of projects I am using to learn how to program Go.
 * Terminal app
 * REST Service
 * Connect to DB
+* Unit Testing
 
 ## Resources
 [Language Spec](https://go.dev/ref/spec)

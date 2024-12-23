@@ -16,9 +16,23 @@ func (h MyHandler) ServeHTTP(resp http.ResponseWriter, request *http.Request) {
 }
 
 func main() {
-	http.Handle("/anotherone", MyHandler{})
-	http.HandleFunc("/test", handleTest)
+	mux := http.NewServeMux()
+
+	test := http.NewServeMux()
+
+	test.Handle("/test", MyHandler{})
+
+	mux.Handle("/anotherone/", http.StripPrefix("/anotherone", test))
+
+	mux.HandleFunc("/test", handleTest)
 	port := ":8080"
 	log.Printf("Starting server on port %s", port)
-	log.Fatal(http.ListenAndServe(port, nil))
+	// log.Fatal(http.ListenAndServe(port, mux))
+
+	server := http.Server{
+		Addr:    port,
+		Handler: mux,
+	}
+
+	log.Fatal(server.ListenAndServe())
 }
